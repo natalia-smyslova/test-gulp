@@ -1,5 +1,4 @@
 const gulp        = require('gulp');
-const ghPages = require('gulp-gh-pages');
 const browserSync = require('browser-sync');
 const sass        = require('gulp-sass')(require('sass'));
 const cleanCSS = require('gulp-clean-css');
@@ -8,16 +7,16 @@ const rename = require("gulp-rename");
 const imagemin = require('gulp-imagemin');
 const htmlmin = require('gulp-htmlmin');
 
-// gulp.task('server', function() {
+gulp.task('server', function() {
 
-//     browserSync({
-//         server: {
-//             baseDir: "dist"
-//         }
-//     });
+    browserSync({
+        server: {
+            baseDir: "dist"
+        }
+    });
 
-//     gulp.watch("src/*.html").on('change', browserSync.reload);
-// });
+    gulp.watch("src/*.html").on('change', browserSync.reload);
+});
 
 gulp.task('styles', function() {
     return gulp.src("src/sass/**/*.+(scss|sass)")
@@ -62,4 +61,5 @@ gulp.task('images', function () {
         .pipe(gulp.dest("dist/img"));
 });
 
-gulp.task('default', gulp.parallel('watch', 'server', 'styles', 'scripts', 'fonts', 'icons', 'html', 'images'));
+gulp.task('default', gulp.series('server'), gulp.parallel('watch', 'server', 'styles', 'scripts', 'fonts', 'icons', 'html', 'images'));
+
