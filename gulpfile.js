@@ -61,5 +61,6 @@ gulp.task('images', function () {
         .pipe(gulp.dest("dist/img"));
 });
 
-gulp.task('default', gulp.series('server'), gulp.parallel('watch', 'server', 'styles', 'scripts', 'fonts', 'icons', 'html', 'images'));
+gulp.task('default', gulp.series('server'));
+// gulp.task('default', gulp.series('server'), gulp.parallel('watch', 'server', 'styles', 'scripts', 'fonts', 'icons', 'html', 'images'));
 
