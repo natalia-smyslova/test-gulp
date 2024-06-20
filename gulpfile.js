@@ -8,16 +8,16 @@ const rename = require("gulp-rename");
 const imagemin = require('gulp-imagemin');
 const htmlmin = require('gulp-htmlmin');
 
-gulp.task('server', function() {
+// gulp.task('server', function() {
 
-    browserSync({
-        server: {
-            baseDir: "dist"
-        }
-    });
+//     browserSync({
+//         server: {
+//             baseDir: "dist"
+//         }
+//     });
 
-    gulp.watch("src/*.html").on('change', browserSync.reload);
-});
+//     gulp.watch("src/*.html").on('change', browserSync.reload);
+// });
 
 gulp.task('styles', function() {
     return gulp.src("src/sass/**/*.+(scss|sass)")
@@ -26,7 +26,7 @@ gulp.task('styles', function() {
         .pipe(autoprefixer())
         .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest("dist/css"))
-        .pipe(browserSync.stream());
+        // .pipe(browserSync.stream());
 });
 
 gulp.task('watch', function() {
