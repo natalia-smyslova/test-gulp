@@ -8,6 +8,7 @@
   },
   "author": "",
   "license": "ISC",
+  "homepage": "https://{natalia-smyslova}.github.io/{test-gulp}",
   "devDependencies": {
     "browser-sync": "^2.26.5",
     "gulp": "^4.0.2",
