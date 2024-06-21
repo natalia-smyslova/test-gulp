@@ -11,8 +11,9 @@ gulp.task('server', function() {
 
     browserSync({
         server: {
-            baseDir: "dist"
-        }
+            baseDir: "dist",
+            open: false
+        },
     });
 
     gulp.watch("src/*.html").on('change', browserSync.reload);
@@ -61,5 +62,5 @@ gulp.task('images', function () {
         .pipe(gulp.dest("dist/img"));
 });
 
-gulp.task('default', gulp.series('server'), gulp.parallel('watch', 'server', 'styles', 'scripts', 'fonts', 'icons', 'html', 'images'));
+gulp.task('default', gulp.parallel('watch', 'server', 'styles', 'scripts', 'fonts', 'icons', 'html', 'images'));
 
